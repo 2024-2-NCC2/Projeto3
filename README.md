@@ -67,9 +67,29 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 
 ## 🎓 Referências
 
-1. <https://github.com/iuricode/readme-template>
-2. <https://github.com/gabrieldejesus/readme-model>
-3. <https://creativecommons.org/share-your-work/>
-4. <https://freesound.org/>
-5. Músicas por: <a href="https://freesound.org/people/DaveJf/sounds/616544/"> DaveJf </a> e <a href="https://freesound.org/people/DRFX/sounds/338986/"> DRFX </a> ambas com Licença CC 0.
-
+1.https://www.fcc.org.br/difusao/biblioteca/biografia
+2.https://www.ev.org.br/#:~:text=A%20FUNDA%C3%87%C3%83O%20BRADESCO,%20entidade
+%20beneficente%20de%20assist%C3%AAncia
+3.https://fotografia.folha.uol.com.br/galerias/1799335716865441-d#:~:text=Folha%20Social%20P%C3%A3o%20do%20Povo%20da%20Rua%20torna%20ex-usu%C3%A1rios%20de
+4.https://sinpesp.com.br/
+5.https://www.casaum.org/
+6.https://www.caosemdono.com.br/#:~:text=O%20C%C3%A3o%20Sem%20Dono%20%C3%A9
+%20uma%20ONG%20%28Organiza%C3%A7%C3%A3o,lhes%20deem%20amor%2C%20carinho
+%20e%20uma%20vida%20digna.
+7.https://www.udemy.com/pt/
+8.https://www.alura.com.br/#:~:text=A%20Alura%20%C3%A9%20a%20maior%20escola%20on
+line%20de%20tecnologia%20do
+9.https://getbootstrap.com/#:~:text=Bootstrap%20%C2%B7%20The%20most%20popular%20
+HTML,%20CSS,%20and%20JS%20library
+10.https://cheatsheets.zip/#:~:text=Cheat%20Sheets.%20for%20Developers.%20Welcome%20
+the%20ultimate
+11.https://flexboxfroggy.com/#:~:text=Welcome%20to%20Flexbox%20Froggy,%20a%20game
+%20where%20you%20help%20Froggy
+12.https://cssgridgarden.com/#:~:text=Grid%20Garden%20-
+%20A%20game%20for%20learning%20CSS%20grid.%20Welcome
+13.https://youtu.be/pNBTyMIUDew?si=IQwANCbTnxVD9lRt
+14.https://youtu.be/0su3MyulVSo?si=W6i63Kz2NUDzn4i-
+15.https://youtu.be/Jg6JaEjovJk?si=81m90br4tcA9vAEG
+16.https://youtu.be/edDCEK5QWE8?si=1sPvfxBtzcEkSLGZ
+17.'https://youtu.be/BpzyuuPIEaQ?si=NzN6aPxM0iqoCftI
+18.https://youtu.be/x-4z_u8LcGc?si=AF1nWxB5CaM6ibcZ
