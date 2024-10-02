@@ -46,7 +46,7 @@ bd: Pasta com arquivos relacionados ao Banco de Dados.
 calculoII: Documentações que contemplem a matéria de Cálculo II.
 [calculoII](./calculoII)
 
-documentos (com pasta arquivos e Figma): Devidos documentos e direções para o Figma.
+documentos: Devidos documentos do projeto.
 [documentos](./documentos)
 
 src (com backend e frontend): Pasta que contém os códigos do projeto.
