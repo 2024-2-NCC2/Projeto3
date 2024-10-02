@@ -40,6 +40,7 @@ README.MD: Arquivo que serve como guia e explicação geral sobre o projeto ABRA
 Além disso, há outras pastas com os devidos arquivos em cada período de entrega.
 
 bd: Pasta com arquivos relacionados ao Banco de Dados.
+[bd](./bd)
 
 calculoII: Documentações que contemplem a matéria de Cálculo II.
 
