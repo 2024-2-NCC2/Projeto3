@@ -8,7 +8,7 @@
 
 ## Integrantes: André dos Santos, Guilherme Fogolin, Lucas Moreira, Pedro Lemos e Yan Cezareto
 
-## Professores Orientadores: David De Oliveira Lemes e Francisco de Souza Escobar
+## Professores Orientadores: David de Oliveira Lemes e Francisco de Souza Escobar
 
 ## Descrição
 
