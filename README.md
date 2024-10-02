@@ -19,35 +19,35 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ## 🛠 Estrutura de pastas
 
 -Raiz
-<br>
+
 |--> bd
-<br>
+
    |--> primeiraEntrega
-<br>
+
 |--> calculoII
-<br>
+
    |--> primeiraEntrega
-<br>
+
 |--> documentos
-<br>
+
    |--> arquivos
-<br>
+
       |--> primeiraEntrega
-<br>
+
    |--> figma
-<br>
+
       |--> primeiraEntrega
-<br>
+
 |--> src
-<br>
+
    |--> Backend
-<br>
+
       |--> primeiraEntrega
-<br>
+
    |--> Frontend
-<br>
+
       |--> primeiraEntrega
-<br>
+
 |readme.md
 
 README.MD: Arquivo que serve como guia e explicação geral sobre o projeto ABRACESP.
