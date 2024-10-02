@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title> ABRACESP Home </title>
+</head>
+
+<body id="construcao">
+    <header>
+        <div class="logoHome">
+            <span class="abrace">ABRACE</span><span class="sp">SP</span>
+        </div>
+        <div class="itensMenu">
+            <ul id="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Alimentação</a></li>
+                <li><a href="#">Acolhimento</a></li>
+                <li><a href="#">Educação</a></li>
+                <li><a href="#">Saúde</a></li>
+                <li class="dropdown">
+                    <a href="#">Mais &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Mais Serviços</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <div class="botaoCadastro">
+            <button id="construcao">CADASTRO</button>
+        </div>
+    </header>
+
+    <div class="containerHome">
+        <div class="contentHome">
+            <h1><span class="abrace">ABRACE</span><span class="sp">SP</span></h1>
+            <h2>Um conjunto de serviços essenciais para você!</h2>
+            <button>DESCUBRA</button>
+        </div>
+    </div>
+
+
+    <div class="contentResumo">
+        <main>
+            <section class="contentSection">
+                <p class="intro">SUPORTE CENTRALIZADO!</p>
+                <h1 class="h1Content">
+                    Conectando os recursos de <span class="highlight">São Paulo</span>
+                </h1>
+                <p class="description">
+                    O abraceSP atua como um portal vital para serviços sociais em São
+                    Paulo, conectando indivíduos com recursos essenciais.<br /><br />
+                    Desde ONGs que oferecem abrigo e doações a serviços de alimentação e
+                    oportunidades de formação, simplificamos o acesso ao apoio. As
+                    organizações podem registar-se para apresentar as suas ofertas,
+                    garantindo que a comunidade esteja informada e capacitada. Junte-se a
+                    nós para fazer a diferença explorando a riqueza de serviços
+                    disponíveis em São Paulo!
+                </p>
+                <div class="botao-section">
+                    <button class="botaoContentResumo" id="construcao">CADASTRO</button>
+                </div>
+            </section>
+
+            <aside class="image-section">
+                <img src="img/Captura de tela 2024-09-27 194336.png" alt="Conectando recursos de São Paulo" />
+            </aside>
+
+        </main>
+    </div>
+
+
+    <div class="contato">
+        <div class="containerContato">
+            <div class="left">
+                <h1>
+                    ENTRE EM CONTATO!
+                </h1>
+                <h2>
+                    Sugestões, dúvidas, suporte, bate-papo
+                </h2>
+                <img src="/homePrincipal/img/AbraceSP.png" alt="Logo Abrace SP">
+            </div>
+
+            <div class="right">
+                <form>
+                    <div>
+                        <label for="nome"><strong>Nome</strong></label>
+                        <input type="text" placeholder="Nome e sobrenome" id="nome" required>
+                    </div>
+
+                    <div>
+                        <label for="email"><strong>Endereço de e-mail</strong></label>
+                        <input type="email" placeholder="email@website.com.br" id="email" required>
+                    </div>
+
+                    <div>
+                        <label for="telefone"><strong>Telefone para contato</strong></label>
+                        <input type="text" placeholder="(00) 00000 - 0000" id="telefone" required>
+                    </div>
+
+                    <div>
+                        <label for="mensagem"><strong>Mensagem</strong></label>
+                        <textarea rows="6" placeholder="Digite sua mensagem" id="mensagem" required></textarea>
+                    </div>
+
+                    <div class="checkbox-custom">
+                        <input type="checkbox" id="checkbox" required />
+                        <label for="checkbox"> Concordo com esse site armazenar minha mensagem para posterior
+                            resposta! </label>
+                    </div>
+                    <button class="buttonContato" type="submit"><strong>ENVIAR</strong></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="logoHome">
+            <span class="abrace">ABRACE</span>
+            <span class="sp">SP</span>
+        </div>
+        <div class="itensMenu">
+            <ul id="menu">
+                <li><a href="/alimentacao">Alimentação</a></li>
+                <li><a href="/acolhimento">Acolhimento</a></li>
+                <li><a href="/educacao">Educação</a></li>
+                <li><a href="/saude-mental">Saúde Mental</a></li>
+                <li><a href="/mais-servicos">Mais Serviços</a></li>
+                <li><a href="/sobre-nos">Sobre Nós</a></li>
+                <li><a href="/cadastro">Cadastro</a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Copyright © 2024 - 2024 ABRACE<span class="sp">SP</span> FECAP
+        </div>
+    </footer>
+
+    <script src="home.js"></script> <!-- Referência para o arquivo JavaScript -->
+
+</body>
+
+</html>

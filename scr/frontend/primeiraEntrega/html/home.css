@@ -1,0 +1,446 @@
+header {
+    background-color: #000000;
+    /* Cor de fundo opcional */
+    padding: 20px;
+    /* Espaçamento ao redor do header */
+    display: flex;
+    /* Alinha os itens lado a lado */
+    justify-content: space-between;
+    /* Espaça igualmente todos os itens */
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+}
+
+.logoHome {
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.logoHome .abrace {
+    color: #fff;
+}
+
+.logoHome .sp {
+    color: #9B0202;
+}
+
+.contentHome .sp {
+    color: #9B0202;
+}
+
+.itensMenu {
+    flex: 2;
+}
+
+.itensMenu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itensMenu ul li {
+    position: relative;
+    margin: 0;
+}
+
+.itensMenu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.itensMenu ul li a:hover {
+    color: #9B0202;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #000000;
+}
+
+.botaoCadastro {
+    display: flex;
+    align-items: center;
+}
+
+.botaoCadastro button {
+    padding: 10px 20px;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    border: none;
+    background-color: #9B0202;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.botaoCadastro button:hover {
+    background-color: #6d0b0b;
+}
+
+.containerHome {
+    height: 100vh;
+    background-image: url('img/logoAbraceSP.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.contentHome {
+    text-align: center;
+    color: #fff;
+}
+
+.contentHome h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.contentHome h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-family: 'Inter', sans-serif;
+}
+
+.contentHome button {
+    padding: 15px 30px;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    background-color: #9B0202;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contentHome button:hover {
+    background-color: #6d0b0b;
+}
+
+.contentResumo {
+    font-family: "Inter", sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.contentSection {
+    flex: 1;
+    padding: 20px;
+}
+
+.intro {
+    font-size: 0.8em;
+    font-weight: bolder;
+    color: #9b0209;
+    margin: 10px 0;
+    margin-bottom: 30px;
+}
+
+main {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.h1Content {
+    font-size: 2em;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+.highlight {
+    color: #9b0209;
+}
+
+.description {
+    font-size: 1em;
+    line-height: 2;
+    margin: auto;
+}
+
+.botao-section {
+    display: flex;
+    justify-content: center;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.botaoContentResumo {
+    background-color: #9b0209;
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.botaoContentResumo:hover {
+    background-color: #6d0b0b;
+}
+
+.contato {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+}
+
+.containerContato {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background-color: #000;
+    padding: 20px;
+}
+
+.left {
+    flex: 1;
+    padding: 20px;
+    margin-left: 40px;
+    margin-top: 5%;
+}
+
+.left h1 {
+    color: #9B0202;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8em;
+}
+
+.left h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    margin: 20px 0;
+    width: 14em;
+}
+
+.left img {
+    width: 350px;
+    margin-top: 6em;
+    margin-left: 9em;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Garante que os elementos ocupem o espaço corretamente */
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.right label {
+    display: block;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+.right input,
+.right textarea {
+    width: 36em;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.right input#nome,
+#email,
+#telefone,
+#mensagem {
+    background-color: #761212;
+}
+
+.checkbox-custom input {
+    display: none;
+}
+
+.checkbox-custom input+label::before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #761212;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.checkbox-custom input:checked+label:before {
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: #761212;
+    background-position: center;
+    border: none;
+
+}
+
+.buttonContato {
+    width: 100%;
+    padding: 10px;
+    background-color: #9F1818;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.buttonContato:hover {
+    background-color: #761212;
+}
+
+.footer {
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoHome {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* Espaçamento entre o logo e o menu */
+}
+
+.abrace {
+    color: #fff;
+}
+
+.sp {
+    color: #9B0202;
+}
+
+.itensMenu {
+    width: 65%;
+}
+
+.itensMenu ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    /* Garante que o menu ocupe toda a tela */
+}
+
+.itensMenu ul li {
+    margin: 0;
+    /* Remove margens adicionais para evitar que quebre a linha */
+}
+
+.itensMenu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    padding: 10px 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    /* Permite que o transform funcione */
+}
+
+.itensMenu ul li a:hover {
+    color: #9B0202;
+    transform: scale(1.2);
+    /* Zoom de 1.2 */
+}
+
+.copyright {
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.copyright .sp {
+    color: #9B0202;
+}
