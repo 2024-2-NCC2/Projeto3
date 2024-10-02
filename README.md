@@ -12,7 +12,7 @@
 
 ## Descrição
 
-![Logo Inicial do site do ABRACESP](abrace.png)
+![Logo Inicial do site do ABRACESP](logo.jpg)
 
 Um site que permite o usuário ter acessos a diversas divulgações de serviços sociais em São Paulo, tais como ONG’s que realizam o acolhimento e doações à população, serviços de alimentação e oportunidades de cursos e capacitações. Consiste na centralização dessas informações em uma ideia tal qual um “portal de informações”.
 
