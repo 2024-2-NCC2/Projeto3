@@ -50,6 +50,9 @@ documentos: Devidos documentos do projeto.
 src (com backend e frontend): Pasta que contém os códigos do projeto.
 [src](./src)
 
+## 🎨 Figma
+[Link para protótipo do Figma](https://www.figma.com/proto/uvSgLKfouJ1rHC1m3e6JA7/Wireframes---ABRACESP?node-id=699-10&t=IAQbOVuR7RTnp4yq-1)
+
 ## 🛠 Instalação
 
 <b>HTML:</b>
