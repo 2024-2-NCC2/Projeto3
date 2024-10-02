@@ -26,8 +26,6 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ├── documentos/
 │   ├── arquivos/
 │   │   └── primeiraEntrega/
-│   └── figma/
-│       └── primeiraEntrega/
 ├── src/
 │   ├── Backend/
 │   │   └── primeiraEntrega/
