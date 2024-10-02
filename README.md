@@ -35,6 +35,18 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
   |--> primeiraEntrega
 |readme.md
 
+README.MD: Arquivo que serve como guia e explicação geral sobre o projeto ABRACESP.
+
+Além disso, há outras pastas com os devidos arquivos em cada período de entrega.
+
+bd: Pasta com arquivos relacionados ao Banco de Dados.
+
+calculoII: Documentações que contemplem a matéria de Cálculo II.
+
+documentos (com pasta arquivos e Figma): Devidos documentos e direções para o Figma.
+
+src (com backend e frontend): Pasta que contém os códigos do projeto.
+
 ## 🛠 Instalação
 
 <b>HTML:</b>
