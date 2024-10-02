@@ -22,31 +22,31 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 <br>
 |--> bd
 <br>
- |--> primeiraEntrega
+   |--> primeiraEntrega
 <br>
 |--> calculoII
 <br>
- |--> primeiraEntrega
+   |--> primeiraEntrega
 <br>
 |--> documentos
 <br>
- |--> arquivos
+   |--> arquivos
 <br>
-  |--> primeiraEntrega
- <br>
- |--> figma
- <br>
-  |--> primeiraEntrega
- <br>
+      |--> primeiraEntrega
+<br>
+   |--> figma
+<br>
+      |--> primeiraEntrega
+<br>
 |--> src
 <br>
- |--> Backend
+   |--> Backend
 <br>
-  |--> primeiraEntrega
+      |--> primeiraEntrega
 <br>
- |--> Frontend
+   |--> Frontend
 <br>
-  |--> primeiraEntrega
+      |--> primeiraEntrega
 <br>
 |readme.md
 
