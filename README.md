@@ -19,20 +19,35 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ## 🛠 Estrutura de pastas
 
 -Raiz
+<br>
 |--> bd
+<br>
  |--> primeiraEntrega
+<br>
 |--> calculoII
+<br>
  |--> primeiraEntrega
+<br>
 |--> documentos
+<br>
  |--> arquivos
+<br>
   |--> primeiraEntrega
+ <br>
  |--> figma
+ <br>
   |--> primeiraEntrega
+ <br>
 |--> src
+<br>
  |--> Backend
+<br>
   |--> primeiraEntrega
+<br>
  |--> Frontend
+<br>
   |--> primeiraEntrega
+<br>
 |readme.md
 
 README.MD: Arquivo que serve como guia e explicação geral sobre o projeto ABRACESP.
@@ -70,11 +85,10 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 1.https://www.fcc.org.br/difusao/biblioteca/biografia
 <br><br>
 
-2.https://www.ev.org.br/#:~:text=A%20FUNDA%C3%87%C3%83O%20BRADESCO,%20entidade
-%20beneficente%20de%20assist%C3%AAncia
+2.https://www.ev.org.br/
 <br><br>
 
-3.https://fotografia.folha.uol.com.br/galerias/1799335716865441-d#:~:text=Folha%20Social%20P%C3%A3o%20do%20Povo%20da%20Rua%20torna%20ex-usu%C3%A1rios%20de
+3.https://fotografia.folha.uol.com.br/galerias/1799335716865441-d
 <br><br>
 
 4.https://sinpesp.com.br/
@@ -83,27 +97,25 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 5.https://www.casaum.org/
 <br><br>
 
-6.https://www.caosemdono.com.br/#:~:text=O%20C%C3%A3o%20Sem%20Dono%20%C3%A9
-%20uma%20ONG%20%28Organiza%C3%A7%C3%A3o,lhes%20deem%20amor%2C%20carinho
-%20e%20uma%20vida%20digna.
+6.https://www.caosemdono.com.br/
 <br><br>
 
 7.https://www.udemy.com/pt/
 <br><br>
 
-8.https://www.alura.com.br/#:~:text=A%20Alura%20%C3%A9%20a%20maior%20escola%20online%20de%20tecnologia%20do
+8.https://www.alura.com.br/
 <br><br>
 
-9.https://getbootstrap.com/#:~:text=Bootstrap%20%C2%B7%20The%20most%20popular%20HTML,%20CSS,%20and%20JS%20library
+9.https://getbootstrap.com/
 <br><br>
 
-10.https://cheatsheets.zip/#:~:text=Cheat%20Sheets.%20for%20Developers.%20Welcome%20the%20ultimate
+10.https://cheatsheets.zip/
 <br><br>
 
-11.https://flexboxfroggy.com/#:~:text=Welcome%20to%20Flexbox%20Froggy,%20a%20game%20where%20you%20help%20Froggy
+11.https://flexboxfroggy.com/
 <br><br>
 
-12.https://cssgridgarden.com/#:~:text=Grid%20Garden%20-%20A%20game%20for%20learning%20CSS%20grid.%20Welcome
+12.https://cssgridgarden.com/
 <br><br>
 
 13.https://youtu.be/pNBTyMIUDew?si=IQwANCbTnxVD9lRt
