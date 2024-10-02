@@ -19,33 +19,21 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ## 🛠 Estrutura de pastas
 
 -Raiz
-|
 |--> bd
-
  |--> primeiraEntrega
-
 |--> calculoII
-
  |--> primeiraEntrega
- 
 |--> documentos
-
  |--> arquivos
   |--> primeiraEntrega
-  
  |--> figma
   |--> primeiraEntrega
- 
 |--> src
-
  |--> Backend
   |--> primeiraEntrega
-  
  |--> Frontend
   |--> primeiraEntrega
-
 |readme.md
-
 
 ## 🛠 Instalação
 
@@ -56,6 +44,7 @@ Encontre o index.html na pasta executáveis e execute-o como uma página WEB (at
 
 ## 💻 Configuração para Desenvolvimento
 
+Descreva como instalar todas as dependências para desenvolvimento e como rodar um test-suite automatizado de algum tipo. Se necessário, faça isso para múltiplas plataformas.
 
 ## 📋 Licença/License
 
