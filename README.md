@@ -68,8 +68,10 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 ## 🎓 Referências
 
 1.https://www.fcc.org.br/difusao/biblioteca/biografia
+<br>
 2.https://www.ev.org.br/#:~:text=A%20FUNDA%C3%87%C3%83O%20BRADESCO,%20entidade
 %20beneficente%20de%20assist%C3%AAncia
+<br>
 3.https://fotografia.folha.uol.com.br/galerias/1799335716865441-d#:~:text=Folha%20Social%20P%C3%A3o%20do%20Povo%20da%20Rua%20torna%20ex-usu%C3%A1rios%20de
 4.https://sinpesp.com.br/
 5.https://www.casaum.org/
