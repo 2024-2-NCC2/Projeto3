@@ -12,7 +12,7 @@
 
 ## Descrição
 
-![Logo Inicial do site do ABRACESP](logo.jpg)
+![Logo Inicial do site do ABRACESP](./img/logo.jpg)
 
 Um site que permite o usuário ter acessos a diversas divulgações de serviços sociais em São Paulo, tais como ONG’s que realizam o acolhimento e doações à população, serviços de alimentação e oportunidades de cursos e capacitações. Consiste na centralização dessas informações em uma ideia tal qual um “portal de informações”.
 
@@ -47,6 +47,9 @@ calculoII: Documentações que contemplem a matéria de Cálculo II.
 
 documentos: Devidos documentos do projeto.
 [documentos](./documentos)
+
+img: Reunião de imagens utilizadas no projeto.
+[img](./img)
 
 src (com backend e frontend): Pasta que contém os códigos do projeto.
 [src](./src)
