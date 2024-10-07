@@ -70,6 +70,7 @@ Descreva como instalar todas as dependências para desenvolvimento e como rodar 
 
 ## 📋 Licença/License
 
+ABRACESP © 2024 by André Gregório dos Santos, Guilherme Reis Fogolin de Godoy, Lucas Moreira de Godoy, Pedro Henrique Nascimento Lemos, Yan Cezareto Ramos is licensed under CC BY-NC-ND 4.0 
 
 ## 🎓 Referências
 
