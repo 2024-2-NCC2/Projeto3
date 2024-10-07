@@ -19,13 +19,13 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ## 🛠 Estrutura de pastas
 
 ```Raiz/
-├── bd/
-│   └── primeiraEntrega/
-├── calculoII/
-│   └── primeiraEntrega/
 ├── documentos/
-│   ├── arquivos/
+│   ├── bd/
 │   │   └── primeiraEntrega/
+│   ├── calculoII/
+│   |    └── primeiraEntrega/
+│   └── gerais/
+│       └── primeiraEntrega/
 ├── img/
 ├── src/
 │   ├── Backend/
@@ -39,13 +39,7 @@ README.MD: Arquivo que serve como guia e explicação geral sobre o projeto ABRA
 
 Além disso, há outras pastas com os devidos arquivos em cada período de entrega.
 
-bd: Pasta com arquivos relacionados ao Banco de Dados.
-[bd](./bd)
-
-calculoII: Documentações que contemplem a matéria de Cálculo II.
-[calculoII](./calculoII)
-
-documentos: Devidos documentos do projeto.
+documentos: Devidos documentos do projeto, arquivos relacionados ao Banco de Dados e relações com Cálculo II.
 [documentos](./documentos)
 
 img: Reunião de imagens utilizadas no projeto.
