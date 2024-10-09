@@ -1,16 +1,16 @@
 # Projeto3 - ABRACESP
 
-## FECAP - Fundação de Comércio Álvares Penteado
+## 🏫 FECAP - Fundação de Comércio Álvares Penteado
 
 <p align="center">
-<a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
+<a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="25.0px"></a>
 </p>
 
 ## 👨‍💻 Integrantes: André dos Santos, Guilherme Fogolin, Lucas Moreira, Pedro Lemos e Yan Cezareto
 
 ## 👨‍🏫 Professores Orientadores: David de Oliveira Lemes, Francisco de Souza Escobar, Katia Milani Lara Bossi e Renata Muniz Do Nascimento
 
-## Descrição
+## 📄 Descrição
 
 <p align="center">
   <img src="./img/logo.jpg" alt="Logo ABRACESP" width="500">
@@ -51,7 +51,7 @@ src (com backend e frontend): Pasta que contém os códigos do projeto.
 [src](./src)
 
 ## 🎨 Figma
-[Link para protótipo do Figma](https://www.figma.com/proto/uvSgLKfouJ1rHC1m3e6JA7/Wireframes---ABRACESP?node-id=699-10&t=IAQbOVuR7RTnp4yq-1)
+Link para o protótipo do [Figma](https://www.figma.com/proto/uvSgLKfouJ1rHC1m3e6JA7/Wireframes---ABRACESP?node-id=699-10&t=IAQbOVuR7RTnp4yq-1)!
 
 ## 💻 Configuração para Instalação
 
