@@ -94,56 +94,88 @@ ABRACESP © 2024 by André Gregório dos Santos, Guilherme Reis Fogolin de Godoy
 
 ## 🎓 Referências
 
-1.https://www.fcc.org.br/difusao/biblioteca/biografia
-<br><br>
+```
+1. https://www.fcc.org.br/difusao/biblioteca/biografia
 
-2.https://www.ev.org.br/
-<br><br>
+2. https://www.ev.org.br/
 
-3.https://fotografia.folha.uol.com.br/galerias/1799335716865441-d
-<br><br>
+3. https://fotografia.folha.uol.com.br/galerias/1799335716865441-d
 
-4.https://sinpesp.com.br/
-<br><br>
+4. https://sinpesp.com.br/
 
-5.https://www.casaum.org/
-<br><br>
+5. https://www.casaum.org/
 
-6.https://www.caosemdono.com.br/
-<br><br>
+6. https://www.caosemdono.com.br/
 
-7.https://www.udemy.com/pt/
-<br><br>
+7. https://www.udemy.com/pt/
 
-8.https://www.alura.com.br/
-<br><br>
+8. https://www.alura.com.br/
 
-9.https://getbootstrap.com/
-<br><br>
+9. https://getbootstrap.com/
 
-10.https://cheatsheets.zip/
-<br><br>
+10. https://cheatsheets.zip/
 
-11.https://flexboxfroggy.com/
-<br><br>
+11. https://flexboxfroggy.com/
 
-12.https://cssgridgarden.com/
-<br><br>
+12. https://cssgridgarden.com/
 
-13.https://youtu.be/pNBTyMIUDew?si=IQwANCbTnxVD9lRt
-<br><br>
+13. https://youtu.be/pNBTyMIUDew?si=IQwANCbTnxVD9lRt
 
-14.https://youtu.be/0su3MyulVSo?si=W6i63Kz2NUDzn4i-
-<br><br>
+14. https://youtu.be/0su3MyulVSo?si=W6i63Kz2NUDzn4i-
 
-15.https://youtu.be/Jg6JaEjovJk?si=81m90br4tcA9vAEG
-<br><br>
+15. https://youtu.be/Jg6JaEjovJk?si=81m90br4tcA9vAEG
 
-16.https://youtu.be/edDCEK5QWE8?si=1sPvfxBtzcEkSLGZ
-<br><br>
+16. https://youtu.be/edDCEK5QWE8?si=1sPvfxBtzcEkSLGZ
 
-17.https://youtu.be/BpzyuuPIEaQ?si=NzN6aPxM0iqoCftI
-<br><br>
+17. https://youtu.be/BpzyuuPIEaQ?si=NzN6aPxM0iqoCftI
 
-18.https://youtu.be/x-4z_u8LcGc?si=AF1nWxB5CaM6ibcZ
-<br><br>
+18. https://youtu.be/x-4z_u8LcGc?si=AF1nWxB5CaM6ibcZ
+
+19. https://casadeisabel.org.br/
+
+20. https://capital.sp.gov.br/web/direitos_humanos/w/mulheres/336498
+
+21. https://www.arouchianos.com.br/mona.html
+
+22. https://www.arouchianos.com.br/mona.html
+
+23. https://casadoaconchego.org.br/
+
+24. https://cadiversidade.wixsite.com/florescer
+
+25. https://saoluiz.org.br/
+
+26. https://www.pucsp.br/clinica/
+
+27. https://www.ung.br/estrutura-fisica/clinica-de-psicologia
+
+28. https://abps.com.br/
+
+29. https://www.mackenzie.br/atendimento-a-comunidade/servico-escola-de-psicologia-mackenzie
+
+30. https://www.desenvolvimentosocial.sp.gov.br/acoes-de-protecao-social/programa-bom-prato/
+
+31. https://www.serasa.com.br/blog/auxilio-cesta-basica/ 
+
+32. https://tonkiri.org.br/ 
+
+33. https://www.paodopovodarua.com.br/ 
+
+32. https://www.sesc.com.br/atuacoes/assistencia/sesc-mesa-brasil/ 
+
+33. https://sebrae.com.br/sites/PortalSebrae/cursosonline 
+
+34. https://www.ev.org.br/ 
+
+35. https://www.dio.me/
+
+36. https://www.atados.com.br/ong/associacao-vida-carrapicho 
+
+37. https://www.caosemdono.com.br/
+
+38. https://faveladapazcom.wordpress.com/ 
+
+39. https://graacc.org.br/ 
+
+40. https://www.fadc.org.br/
+```
