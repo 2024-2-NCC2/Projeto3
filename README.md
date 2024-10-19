@@ -80,6 +80,7 @@ npm install react@^18.3.1
 npm install react-dom@^18.3.1
 npm install react-router-dom@^6.26.2
 npm install react-scripts@^5.0.1
+npm install react-hook-form^7.53.1
 npm install styled-components@^6.1.13
 npm install web-vitals@^2.1.4
 ```
