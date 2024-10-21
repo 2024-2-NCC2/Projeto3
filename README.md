@@ -179,4 +179,28 @@ ABRACESP © 2024 by André Gregório dos Santos, Guilherme Reis Fogolin de Godoy
 39. https://graacc.org.br/ 
 
 40. https://www.fadc.org.br/
+
+41. https://www.revistacanavieiros.com.br/uploads/tinymce/uploads/capa_2_1.gif
+
+42. https://portalceara.jor.br/wp-content/uploads/2023/03/abrinq.jpg42
+
+43. https://spdm.org.br/wp-
+content/uploads/2022/02/867519228d1d5325856fc61d710ded0e.jpg
+
+44. https://graacc.org.br/wp-
+content/uploads/2023/01/GRAACC_Corrida2023_NoticiaSite_907x557.png
+
+45. https://images.virgula.me/2022/06/adus-.png
+
+46. https://i3.wp.com/adus.org.br/wp-content/uploads/2023/08/home2.jpg
+
+47. https://th.bing.com/th/id/OIP.o0GUFWXr7H9v9YJQZz_INAHaE8?rs=1&amp;pid=ImgDetMain
+
+48. https://adotar.com.br/adm/upload/logo_ong160.jpg
+
+49. https://storage.googleapis.com/atados-v3/user-uploaded/images-medium/99c43798-a5fa-4ccc-9acd-929a3ddacc52.jpeg
+
+50. https://th.bing.com/th/id/OIP.vP6pFP-eRLYcDGLvTGaIjAHaHa?rs=1&amp;pid=ImgDetMain
+
+51. https://conteudo.imguol.com.br/c/entretenimento/da/2021/10/07/projeto-tonkiri-ajuda-comunidades-capacita-e-desenvolve-seus-lideres-em-sp-1633636861308_v2_750x421.jpg
 ```
