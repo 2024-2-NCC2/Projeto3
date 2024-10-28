@@ -24,16 +24,20 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ├── documentos/
 │   ├── bd/
 │   │   └── primeiraEntrega/
+│   │   └── segundaEntrega/
 │   ├── calculoII/
-│   |    └── primeiraEntrega/
+│   |   └── primeiraEntrega/
+│   │   └── segundaEntrega/
 │   └── gerais/
 │       └── primeiraEntrega/
 ├── img/
 ├── src/
 │   ├── Backend/
 │   │   └── primeiraEntrega/
+│   │   └── segundaEntrega/
 │   └── Frontend/
 │       └── primeiraEntrega/
+│       └── segundaEntrega/
 └── readme.md
 ```
 
