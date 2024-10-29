@@ -6,4 +6,6 @@
 
 [2] Mini Mundo;
 
-[3] Diagrama Entidade-Relacionamento.
+[3] Diagrama Entidade-Relacionamento;
+
+[4] Modelagem das tabelas e seus relacionamentos.
