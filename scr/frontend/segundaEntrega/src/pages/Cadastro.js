@@ -50,6 +50,12 @@ const FormTitle = styled.h2`
   margin-bottom: 20px;
   text-shadow: 6px 6c 8px #9f1818; /* Sombra branca */
 `;
+const FormDescription = styled.p`
+  text-align: Left;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 6px 6c 8px #9f1818; /* Sombra branca */
+`;
 const Label = styled.label`
   color: #fff;
   margin-bottom: 10px;
@@ -277,6 +283,10 @@ function Cadastro() {
       <FormPage>
         <FormContainer onSubmit={handleSubmit}>
           <FormTitle>Cadastro de Serviço</FormTitle>
+          <FormDescription>
+            Realize o cadastro de seu Estabelecimento/Instituição!
+            Lembrando que apenas aceitamos cadastros na cidade de São Paulo.
+          </FormDescription>
           <Label htmlFor="causas">Causas</Label>
           <Select
             id="causas"
