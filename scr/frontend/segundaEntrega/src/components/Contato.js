@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import emailjs from '@emailjs/browser';
 
 const FormPage = styled.div`
   background-color: #000;
@@ -20,12 +21,13 @@ const LeftContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  margin-top: 5px;
+  margin-top: -14px;
 `;
 
 const LogoImage = styled.img`
   width: 450px; /* Tamanho do logo */
   height: auto;
+  margin-top: 40px;
   margin-left: 5px; /* Ajusta o espaçamento do logo */
   margin-bottom: 5px; /* Ajusta o espaçamento do logo */
 `;
@@ -37,14 +39,12 @@ const TextContainer = styled.div`
   margin-bottom: 30px; /* Reduzindo o margin-bottom */
   margin-top: 10px; /* Reduzindo o margin-top */
 `;
-
 const TextoContainer = styled.div`
   color: #9B0202;
   font-size: 16px;
   font-weight: bolder;
   margin-bottom: 10px; /* Reduzindo o margin-bottom */
 `;
-
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -105,82 +105,64 @@ const SubmitButton = styled.button`
   }
 `;
 
-const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-`;
-
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
-  border: 0;
-  clip: rect(0 0 0 0);
-  clippath: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-`;
-
-const StyledCheckbox = styled.div`
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: ${({ checked }) => (checked ? '#761212' : 'transparent')};
-  border: 2px solid #761212;
-  margin-right: 10px;
-  transition: all 150ms;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    display: ${({ checked }) => (checked ? 'block' : 'none')};
-    left: 5px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-`;
-
-const Labela = styled.label`
-  color: white;
+const SuccessMessage = styled.div`
+  color: #28a745;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
   font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  text-align: center;
 `;
-
-function CustomCheckbox({ isChecked, handleCheckboxChange }) {
-  return (
-    <CheckboxContainer>
-      <HiddenCheckbox checked={isChecked} onChange={handleCheckboxChange} />
-      <StyledCheckbox checked={isChecked} onClick={handleCheckboxChange} />
-      <Labela>Concordo com esse site armazenar minha mensagem para posterior resposta.</Labela>
-    </CheckboxContainer>
-  );
-}
 
 function CadastroForm() {
-  const [message, setMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [isChecked, setIsChecked] = useState(false);
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [mensagem, setMensagem] = useState('');
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-
-  const handleSubmit = (e) => {
+  function enviarEmail(e){
     e.preventDefault();
 
-    if (!isChecked) {
-      alert('Você precisa concordar com os termos antes de enviar a mensagem!');
+    if(nome === '' || email === '' || telefone === '' || mensagem === ''){
+      alert("Preencha todos os campos")
       return;
     }
 
-    setMessage('Mensagem enviada com sucesso!');
-    e.target.reset();
+    const templateParams = {
+      to_name: nome,
+      from_name: email,
+      telephone: telefone,
+      message: mensagem
+    }
+
+    emailjs.send('service_7sxifil', 'template_73pj93k', templateParams, '-ca-HQtKddqy1XmvR')
+    .then((response) => {
+      console.log("EMAIL ENVIADO", response.status, response.text)
+      setNome('')
+      setEmail('')
+      setTelefone('')
+      setMensagem('')
+      setIsChecked(false)
+      setSuccessMessage('Mensagem enviada com sucesso!');
+      setTimeout(() => setSuccessMessage(''), 5000); // Hide message after 5 seconds
+    }, (err) => {
+      console.log("ERRO: ", err)
+    })
+  };
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+
+  const handlePhoneChange = (e) => {
+    const input = e.target.value.replace(/\D/g, '');
+    const formattedPhone = input.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    setTelefone(formattedPhone);
   };
 
   return (
@@ -197,22 +179,63 @@ function CadastroForm() {
         </LogoContainer>
       </LeftContainer>
 
-      <FormContainer onSubmit={handleSubmit}>
+      <FormContainer className='form' onSubmit={enviarEmail}>
         <Label htmlFor="nomeOng">Nome</Label>
-        <Input id="nomeOng" type="text" placeholder="Nome e sobrenome" required />
+        <Input
+          className='input'
+          type="text"
+          placeholder="Digite seu nome e sobrenome"
+          onChange={(e) => setNome(e.target.value)}
+          value={nome}
+          maxLength={50}
+        />
 
         <Label htmlFor="email">Endereço de e-mail</Label>
-        <Input id="email" type="email" placeholder="email@website.com.br" required />
+        <Input
+          className='input'
+          type="email"
+          placeholder="email@website.com.br"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          maxLength={100}
+        />
 
         <Label htmlFor="telefone">Telefone para contato</Label>
-        <Input id="telefone" type="tel" placeholder="(00) 00000 - 0000" required />
+        <Input
+          className='input'
+          type="tel"
+          placeholder="(00)00000-0000"
+          onChange={handlePhoneChange}
+          value={telefone}
+          maxLength={11} // Define um limite de numeros no campo de telefone
+        />
 
         <Label htmlFor="Mensagem">Mensagem</Label>
-        <Textarea id="Mensagem" placeholder="Digite sua mensagem" required />
+        <Textarea
+          className='input'
+          placeholder="Digite sua mensagem em até 500 caracteres"
+          onChange={(e) => setMensagem(e.target.value)}
+          value={mensagem}
+          maxLength={500} // Define um limite de caracteres no campo Mensagem
+        />
 
-        <CustomCheckbox isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+        <label style={{
+          color: "white",
+        }}>
+          <input style={{
+            transform:"scale(1.3)",
+            marginRight:"10px",
+            color:"red"
+          }}
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+          />
+          Concordo com esse site armazenar minha mensagem para posterior resposta
+        </label>
 
         <SubmitButton type="submit">ENVIAR</SubmitButton>
+        {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
       </FormContainer>
     </FormPage>
   );
