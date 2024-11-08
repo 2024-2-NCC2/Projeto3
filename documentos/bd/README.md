@@ -12,6 +12,59 @@
 
 [5] Descrição das tabelas SQL:
 
+### Descrição das Tabelas do Banco de Dados
+
+#### Tabela `usuariosAdmin`
+Tabela que armazena informações dos usuários administradores.
+
+| Campo   | Tipo         | Descrição                        |
+|---------|--------------|----------------------------------|
+| idAdmin | INT          | Chave primária, auto incremento  |
+| usuario | VARCHAR(255) | Nome de usuário                  |
+| senha   | VARCHAR(255) | Senha do usuário                 |
+| nome    | VARCHAR(255) | Nome completo do usuário         |
+| foto    | VARCHAR(255) | URL da foto do usuário           |
+
+#### Tabela `PrestadorServico`
+Tabela que armazena informações dos prestadores de serviço (ONGs).
+
+| Campo         | Tipo         | Descrição                        |
+|---------------|--------------|----------------------------------|
+| idUsuario     | INT          | Chave primária, auto incremento  |
+| nomeOng       | VARCHAR(255) | Nome da ONG                      |
+| telefoneOng   | VARCHAR(20)  | Telefone da ONG                  |
+| emailOng      | VARCHAR(255) | Email da ONG                     |
+| linkSite      | VARCHAR(255) | Link do site da ONG              |
+| linkRedesSociais | TEXT      | Links das redes sociais da ONG   |
+| enderecoOng   | VARCHAR(255) | Endereço da ONG                  |
+| logoOng       | VARCHAR(255) | URL do logo da ONG               |
+| fotosCarrosel | TEXT         | URLs das fotos do carrossel      |
+| dataCadastro  | TIMESTAMP    | Data de cadastro, padrão para a data atual |
+
+#### Tabela `Tipo_Servico`
+Tabela que armazena os tipos de serviço oferecidos.
+
+| Campo        | Tipo         | Descrição                        |
+|--------------|--------------|----------------------------------|
+| idTipoServico| INT          | Chave primária, auto incremento  |
+| causa        | VARCHAR(255) | Causa do serviço                 |
+
+#### Tabela `Servico`
+Tabela que armazena os serviços oferecidos, com chaves estrangeiras para `PrestadorServico` e `Tipo_Servico`.
+
+| Campo        | Tipo         | Descrição                        |
+|--------------|--------------|----------------------------------|
+| idServico    | INT          | Chave primária, auto incremento  |
+| descricao    | TEXT         | Descrição do serviço             |
+| modeloOng    | VARCHAR(255) | Modelo da ONG                    |
+| idUsuario    | INT          | Chave estrangeira para `PrestadorServico` |
+| idTipoServico| INT          | Chave estrangeira para `Tipo_Servico` |
+
+As chaves estrangeiras possuem as seguintes restrições:
+- `idUsuario` referencia `idUsuario` em `PrestadorServico` com `ON DELETE CASCADE`.
+- `idTipoServico` referencia `idTipoServico` em `Tipo_Servico` com `ON DELETE SET NULL`.
+
+[6] Comandos para criação
 ```sql
 -- Criação do banco de dados
 
