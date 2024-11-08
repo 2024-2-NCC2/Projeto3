@@ -54,6 +54,9 @@ img: Reunião de imagens utilizadas no projeto.
 src (com backend e frontend): Pasta que contém os códigos do projeto.
 [src](./src)
 
+bd: Banco de dados relacional usado no projeto.
+[bd](./documentos/bd)
+
 ## 🎨 Figma
 Link para o protótipo do [Figma](https://www.figma.com/proto/uvSgLKfouJ1rHC1m3e6JA7/Wireframes---ABRACESP?node-id=699-10&t=IAQbOVuR7RTnp4yq-1)!
 
