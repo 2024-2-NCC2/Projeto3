@@ -12,11 +12,14 @@
 
 [5] Descrição das tabelas SQL:
 
+```sql
 -- Criação do banco de dados
+
 CREATE DATABASE cadastro;
 USE cadastro;
 
 -- Criação da tabela para usuários administradores
+
 CREATE TABLE usuariosAdmin (
     idAdmin INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(255) NOT NULL,
@@ -24,6 +27,7 @@ CREATE TABLE usuariosAdmin (
 );
 
 -- Inserção de dados na tabela usuariosAdmin
+
 INSERT INTO usuariosAdmin (usuario, senha) VALUES
     ("admin", "123"),
     ("admin2", "oii");
@@ -42,13 +46,15 @@ CREATE TABLE PrestadorServico (
     dataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Criação da tabela de Tipos de Serviço
+- Criação da tabela de Tipos de Serviço
+
 CREATE TABLE Tipo_Servico (
     idTipoServico INT PRIMARY KEY AUTO_INCREMENT,
     causa VARCHAR(255) NOT NULL
 );
 
 -- Criação da tabela de Serviços, com chaves estrangeiras para PrestadorServico e Tipo_Servico
+
 CREATE TABLE Servico (
     idServico INT PRIMARY KEY AUTO_INCREMENT,
     descricao TEXT,
@@ -58,6 +64,8 @@ CREATE TABLE Servico (
     FOREIGN KEY (idUsuario) REFERENCES PrestadorServico(idUsuario) ON DELETE CASCADE,
     FOREIGN KEY (idTipoServico) REFERENCES Tipo_Servico(idTipoServico) ON DELETE SET NULL
 );
+```
+
 
 
 
