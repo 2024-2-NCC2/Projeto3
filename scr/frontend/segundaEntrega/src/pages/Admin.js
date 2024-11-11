@@ -5,13 +5,39 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar, Line, Pie } from 'react-chartjs-2';
+
+// Registre os componentes e escalas do Chart.js
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const HeaderContainer = styled.header`
   .header {
     background-color: #000000;
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; // Alterado de center para space-between
     align-items: center;
     transition: margin-left 0.3s;
     margin-left: ${(props) => (props.isSidebarOpen ? "250px" : "0")};
@@ -25,6 +51,7 @@ const HeaderContainer = styled.header`
     font-size: 36px;
     font-family: "Inter", sans-serif;
     font-weight: bold;
+    margin: 0 auto; // Adicionado para centralizar
   }
 
   .abrace {
@@ -33,6 +60,18 @@ const HeaderContainer = styled.header`
 
   .sp {
     color: #9b0202;
+  }
+
+  .homeButton {
+    background-color: #9b0202;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    &:hover {
+      background-color: #7a0101;
+    }
   }
 `;
 
@@ -70,6 +109,9 @@ const ProfilePic = styled.div`
   background-color: #ecf0f1;
   border-radius: 50%;
   margin-bottom: 10px;
+  background-image: url('/img/imagensAdmins/fecapPerfil.png');
+  background-size: cover;
+  background-position: center;
 `;
 
 const MenuItem = styled.div`
@@ -162,11 +204,15 @@ const CarouselContainer = styled.div`
   width: 100%;
   height: 300px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CarouselImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 300px;
   object-fit: cover;
 `;
 
@@ -202,11 +248,107 @@ const DeleteButton = styled.button`
   }
 `;
 
+const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const DashboardCard = styled.div`
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const DashboardTitle = styled.h3`
+  margin: 10px 0;
+`;
+
+const DashboardText = styled.p`
+  margin: 5px 0;
+`;
+
+const ClientsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const ClientCard = styled.div`
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ClientTitle = styled.h3`
+  margin: 10px 0;
+`;
+
+const ClientText = styled.p`
+  margin: 5px 0;
+`;
+
+// Dados fictícios para os gráficos
+const barData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  datasets: [
+    {
+      label: 'Visitas',
+      backgroundColor: 'rgba(75,192,192,1)',
+      borderColor: 'rgba(0,0,0,1)',
+      borderWidth: 2,
+      data: [65, 59, 80, 81, 56, 55]
+    }
+  ]
+};
+
+const lineData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  datasets: [
+    {
+      label: 'Cadastros',
+      fill: false,
+      lineTension: 0.5,
+      backgroundColor: 'rgba(75,192,192,1)',
+      borderColor: 'rgba(75,192,192,1)',
+      borderWidth: 2,
+      data: [65, 59, 80, 81, 56, 55]
+    }
+  ]
+};
+
+const pieData = {
+  labels: ['ONGs Ativas', 'ONGs Inativas'],
+  datasets: [
+    {
+      label: 'ONGs',
+      backgroundColor: ['#FF6384', '#36A2EB'],
+      hoverBackgroundColor: ['#FF6384', '#36A2EB'],
+      data: [300, 50]
+    }
+  ]
+};
+
 function Admin() {
   const [activeTab, setActiveTab] = useState("inicio");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [expandedCards, setExpandedCards] = useState({});
   const [cadastros, setCadastros] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editData, setEditData] = useState({});
+  const [adminData, setAdminData] = useState({ nome: "", foto: "" });
 
   useEffect(() => {
     // Fetch cadastros from the server
@@ -219,6 +361,19 @@ function Admin() {
       .catch((error) => {
         console.error("Erro ao buscar cadastros: ", error);
       });
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios.get('http://localhost:3001/admin', {
+      headers: { Authorization: token }
+    })
+    .then(response => {
+      setAdminData(response.data);
+    })
+    .catch(error => {
+      console.error("Erro ao buscar dados do admin: ", error);
+    });
   }, []);
 
   const toggleExpand = (index) => {
@@ -246,6 +401,26 @@ function Admin() {
       });
   };
 
+  const handleEdit = (index, cadastro) => {
+    setEditIndex(index);
+    setEditData(cadastro);
+  };
+
+  const handleSave = (index) => {
+    axios
+      .put(`http://localhost:3001/cadastros/${editData.idUsuario}`, editData)
+      .then((response) => {
+        setCadastros((prev) =>
+          prev.map((cadastro, i) => (i === index ? editData : cadastro))
+        );
+        setEditIndex(null);
+        setEditData({});
+      })
+      .catch((error) => {
+        console.error("Erro ao atualizar cadastro: ", error);
+      });
+  };
+
   const formatDate = (dateString) => {
     const options = {
       year: "numeric",
@@ -266,6 +441,9 @@ function Admin() {
             <span className="abrace">ABRACE</span>
             <span className="sp">SP</span>
           </div>
+          <button className="homeButton" onClick={() => window.location.href = "/"}>
+            Home
+          </button>
         </header>
       </HeaderContainer>
 
@@ -273,7 +451,7 @@ function Admin() {
         <Sidebar isOpen={isSidebarOpen}>
           <Profile isOpen={isSidebarOpen}>
             <ProfilePic />
-            <div>Admin Name</div>
+            <div>Perfil administrativo</div>
           </Profile>
           <MenuItem onClick={() => setActiveTab("inicio")}>Início</MenuItem>
           <MenuItem onClick={() => setActiveTab("dashboard")}>
@@ -315,38 +493,332 @@ function Admin() {
                         ))}
                       </Carousel>
                     </CarouselContainer>
-                    <CardText>{cadastro.causa}</CardText>
-                    <CardText>{cadastro.descricao}</CardText>
-                    {expandedCards[index] && (
+                    {editIndex === index ? (
                       <>
-                        <CardText>Telefone: {cadastro.telefoneOng}</CardText>
-                        <CardText>Email: {cadastro.emailOng}</CardText>
-                        <CardText>Site: {cadastro.linkSite}</CardText>
-                        <CardText>
-                          Redes Sociais: {cadastro.linkRedesSociais}
-                        </CardText>
-                        <CardText>Endereço: {cadastro.enderecoOng}</CardText>
-                        <CardText>Modelo: {cadastro.modeloOng}</CardText>
+                        <label>
+                          Nome da ONG:
+                          <input
+                            type="text"
+                            value={editData.nomeOng}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                nomeOng: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Causa:
+                          <input
+                            type="text"
+                            value={editData.causa}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                causa: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Descrição:
+                          <input
+                            type="text"
+                            value={editData.descricaoOng}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                descricaoOng: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Telefone:
+                          <input
+                            type="text"
+                            value={editData.telefoneOng}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                telefoneOng: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Email:
+                          <input
+                            type="text"
+                            value={editData.emailOng}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                emailOng: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Site:
+                          <input
+                            type="text"
+                            value={editData.linkSite}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                linkSite: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Redes Sociais:
+                          <input
+                            type="text"
+                            value={editData.linkRedesSociais}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                linkRedesSociais: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Endereço:
+                          <input
+                            type="text"
+                            value={editData.enderecoOng}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                enderecoOng: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
+                        <label>
+                          Modelo:
+                          <input
+                            type="text"
+                            value={editData.modeloOng}
+                            onChange={(e) =>
+                              setEditData({
+                                ...editData,
+                                modeloOng: e.target.value,
+                              })
+                            }
+                          />
+                        </label>
                         <ButtonContainer>
-                          <ApproveButton onClick={() => handleApprove(index)}>
-                            Aprovar
+                          <ApproveButton onClick={() => handleSave(index)}>
+                            Salvar
                           </ApproveButton>
-                          <DeleteButton onClick={() => handleDelete(index)}>
-                            Recusar
+                          <DeleteButton onClick={() => setEditIndex(null)}>
+                            Cancelar
                           </DeleteButton>
                         </ButtonContainer>
                       </>
+                    ) : (
+                      <>
+                        <CardTitle>{cadastro.nomeOng}</CardTitle>
+                        <CardText>{cadastro.causa}</CardText>
+                        <CardText>{cadastro.descricaoOng}</CardText>
+                        {expandedCards[index] && (
+                          <>
+                            <CardText>
+                              Telefone: {cadastro.telefoneOng}
+                            </CardText>
+                            <CardText>Email: {cadastro.emailOng}</CardText>
+                            <CardText>Site: {cadastro.linkSite}</CardText>
+                            <CardText>
+                              Redes Sociais: {cadastro.linkRedesSociais}
+                            </CardText>
+                            <CardText>
+                              Endereço: {cadastro.enderecoOng}
+                            </CardText>
+                            <CardText>Modelo: {cadastro.modeloOng}</CardText>
+                            <ButtonContainer>
+                              <ApproveButton
+                                onClick={() => handleApprove(index)}
+                              >
+                                Aprovar
+                              </ApproveButton>
+                              <DeleteButton onClick={() => handleDelete(index)}>
+                                Recusar
+                              </DeleteButton>
+                            </ButtonContainer>
+                          </>
+                        )}
+                        <ExpandButton onClick={() => toggleExpand(index)}>
+                          {expandedCards[index] ? "Colapsar" : "Expandir"}
+                        </ExpandButton>
+                        <ExpandButton
+                          onClick={() => handleEdit(index, cadastro)}
+                        >
+                          Editar
+                        </ExpandButton>
+                      </>
                     )}
-                    <ExpandButton onClick={() => toggleExpand(index)}>
-                      {expandedCards[index] ? "Colapsar" : "Expandir"}
-                    </ExpandButton>
                   </Card>
                 ))}
               </CardContainer>
             </>
           )}
-          {activeTab === "dashboard" && <div>Dashboard Content</div>}
-          {activeTab === "clientes" && <div>Clientes Content</div>}
+          {activeTab === "dashboard" && (
+            <DashboardContainer>
+              <DashboardCard>
+                <DashboardTitle>Visitas Hoje</DashboardTitle>
+                <DashboardText>150</DashboardText>
+              </DashboardCard>
+              <DashboardCard>
+                <DashboardTitle>Novos Cadastros</DashboardTitle>
+                <DashboardText>10</DashboardText>
+              </DashboardCard>
+              <DashboardCard>
+                <DashboardTitle>ONGs Ativas</DashboardTitle>
+                <DashboardText>25</DashboardText>
+              </DashboardCard>
+              <DashboardCard>
+                <DashboardTitle>Gráfico de Barras</DashboardTitle>
+                <Bar data={barData} />
+              </DashboardCard>
+              <DashboardCard>
+                <DashboardTitle>Gráfico de Linhas</DashboardTitle>
+                <Line data={lineData} />
+              </DashboardCard>
+              <DashboardCard>
+                <DashboardTitle>Gráfico de Pizza</DashboardTitle>
+                <Pie data={pieData} />
+              </DashboardCard>
+            </DashboardContainer>
+          )}
+          {activeTab === "clientes" && (
+            <ClientsContainer>
+              <ClientCard>
+                <ClientTitle>Atendimento Psicológico Paróquia São Luís Gonzaga</ClientTitle>
+                <ClientText>Email: psicologia@paroquiaslg.com</ClientText>
+                <ClientText>Telefone: (11) 1234-5678</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>SINPESP</ClientTitle>
+                <ClientText>Email: contato@sinpesp.org.br</ClientText>
+                <ClientText>Telefone: (11) 8765-4321</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Clínica Ana Maria Popovic</ClientTitle>
+                <ClientText>Email: atendimento@anamariapopovic.com</ClientText>
+                <ClientText>Telefone: (11) 1122-3344</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Clínica Psicológica da Universidade de Guarulhos</ClientTitle>
+                <ClientText>Email: psicologia@ung.br</ClientText>
+                <ClientText>Telefone: (11) 2233-4455</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>PAN</ClientTitle>
+                <ClientText>Email: atendimento@pan.org.br</ClientText>
+                <ClientText>Telefone: (11) 3344-5566</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>ABPS</ClientTitle>
+                <ClientText>Email: contato@abps.org.br</ClientText>
+                <ClientText>Telefone: (11) 4455-6677</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Associação Vida Carrapicho</ClientTitle>
+                <ClientText>Email: contato@vidacarrapicho.org.br</ClientText>
+                <ClientText>Telefone: (11) 5566-7788</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Cão Sem Dono</ClientTitle>
+                <ClientText>Email: contato@caosemdono.org.br</ClientText>
+                <ClientText>Telefone: (11) 6677-8899</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Instituto Favela da Paz</ClientTitle>
+                <ClientText>Email: contato@faveladapaz.org.br</ClientText>
+                <ClientText>Telefone: (11) 7788-9900</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Instituto Adus</ClientTitle>
+                <ClientText>Email: contato@adus.org.br</ClientText>
+                <ClientText>Telefone: (11) 8899-0011</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>GRAACC</ClientTitle>
+                <ClientText>Email: contato@graacc.org.br</ClientText>
+                <ClientText>Telefone: (11) 9900-1122</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Fundação ABRINQ</ClientTitle>
+                <ClientText>Email: contato@abrinq.org.br</ClientText>
+                <ClientText>Telefone: (11) 0011-2233</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Sebrae</ClientTitle>
+                <ClientText>Email: contato@sebrae.com.br</ClientText>
+                <ClientText>Telefone: (11) 1122-3344</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Fundação Bradesco</ClientTitle>
+                <ClientText>Email: contato@fundacaobradesco.org.br</ClientText>
+                <ClientText>Telefone: (11) 2233-4455</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Digital Innovation One</ClientTitle>
+                <ClientText>Email: contato@dio.me</ClientText>
+                <ClientText>Telefone: (11) 3344-5566</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Montagem de arranjos florais</ClientTitle>
+                <ClientText>Email: contato@seflorpraser.com.br</ClientText>
+                <ClientText>Telefone: (11) 4455-6677</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Cerâmica</ClientTitle>
+                <ClientText>Email: contato@beijaflordaalma.com.br</ClientText>
+                <ClientText>Telefone: (11) 5566-7788</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Corte e costura</ClientTitle>
+                <ClientText>Email: contato@sigbol.com.br</ClientText>
+                <ClientText>Telefone: (11) 6677-8899</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Bom-Prato</ClientTitle>
+                <ClientText>Email: contato@bomprato.sp.gov.br</ClientText>
+                <ClientText>Telefone: (11) 7788-9900</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Banco de Alimentos</ClientTitle>
+                <ClientText>Email: contato@bancodealimentos.org.br</ClientText>
+                <ClientText>Telefone: (11) 8899-0011</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Pão do Povo da Rua</ClientTitle>
+                <ClientText>Email: contato@paodopovodarua.org.br</ClientText>
+                <ClientText>Telefone: (11) 9900-1122</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Tonkiri</ClientTitle>
+                <ClientText>Email: contato@tonkiri.org.br</ClientText>
+                <ClientText>Telefone: (11) 0011-2233</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Sesc Mesa Brasil</ClientTitle>
+                <ClientText>Email: contato@mesabrasil.sescsp.org.br</ClientText>
+                <ClientText>Telefone: (11) 1122-3344</ClientText>
+              </ClientCard>
+              <ClientCard>
+                <ClientTitle>Orgânico Solidario</ClientTitle>
+                <ClientText>Email: contato@organicosolidario.org.br</ClientText>
+                <ClientText>Telefone: (11) 2233-4455</ClientText>
+              </ClientCard>
+            </ClientsContainer>
+          )}
         </Content>
       </Container>
     </>

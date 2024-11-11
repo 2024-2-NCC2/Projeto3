@@ -87,6 +87,19 @@ function Login() {
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
 
+  // Timeout para desconectar após 15 minutos (900000 ms)
+  const timeoutDuration = 900000;
+  let logoutTimer;
+
+  const resetLogoutTimer = () => {
+    if (logoutTimer) clearTimeout(logoutTimer);
+    logoutTimer = setTimeout(() => {
+      localStorage.removeItem("token");
+      navigate("/login");
+      alert("Sessão expirada. Por favor, faça login novamente.");
+    }, timeoutDuration);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -94,12 +107,24 @@ function Login() {
         usuario,
         senha,
       });
-      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("token", `Bearer ${response.data.token}`);
+      resetLogoutTimer();
       navigate("/admin");
     } catch (error) {
       alert("Invalid credentials");
     }
   };
+
+  // Resetar o timer de logout em qualquer interação do usuário
+  React.useEffect(() => {
+    window.addEventListener("mousemove", resetLogoutTimer);
+    window.addEventListener("keydown", resetLogoutTimer);
+
+    return () => {
+      window.removeEventListener("mousemove", resetLogoutTimer);
+      window.removeEventListener("keydown", resetLogoutTimer);
+    };
+  }, []);
 
   return (
     <div>
@@ -130,7 +155,7 @@ function Login() {
             <div className="form-group">
               <label>Senha:</label>
               <input
-                type="senha"
+                type="password" // Ensure the input type is "password"
                 className="form-control"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}

@@ -130,15 +130,15 @@ function SobreNos() {
                     <section style={styles.content2}>
                         <h2 style={styles.titulo2}>Acompanhe nosso projeto nas redes sociais! </h2>
                         <div style={styles.linksContainer}>
-                            <a href="https://www.instagram.com/abracesp" style={styles.link}> {/* Alterar o link para nossa rede */}
+                            <a href="https://www.instagram.com/abracesp" target="_blank" style={styles.link}> {/* Alterar o link para nossa rede */}
                                 <FontAwesomeIcon icon={faInstagram} style={styles.icon} />
                                 Instagram
                             </a>
-                            <a href="https://x.com/projetoabracesp" style={styles.link}> {/* Alterar o link para nossa rede */}
+                            <a href="https://x.com/projetoabracesp" target="_blank" style={styles.link}> {/* Alterar o link para nossa rede */}
                                 <FontAwesomeIcon icon={faXTwitter} style={styles.icon} />
                                 X
                             </a>
-                            <a href="https://www.linkedin.com" style={styles.link}> {/* Alterar o link para nossa rede */}
+                            <a href="https://www.linkedin.com/in/abracesp" target="_blank" style={styles.link}> {/* Alterar o link para nossa rede */}
                                 <FontAwesomeIcon icon={faLinkedin} style={styles.icon} />
                                 LinkedIn
                             </a>

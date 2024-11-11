@@ -171,6 +171,21 @@ function Cadastro() {
   const logoOngRef = useRef(null);
   const fotosCarroselRef = useRef(null);
 
+  function formatPhoneNumber(value) {
+    const phoneNumber = value.replace(/\D/g, "");
+    const match = phoneNumber.match(/^(\d{2})(\d{5})(\d{4})$/);
+    if (match) {
+      return `(${match[1]}) ${match[2]}-${match[3]}`;
+    }
+    return value;
+  }
+
+  const handleTelefoneChange = (e) => {
+    const input = e.target.value.replace(/\D/g, '');
+    const formattedPhone = input.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    setTelefoneOng(formattedPhone);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -276,6 +291,7 @@ function Cadastro() {
         setCidade(data.localidade);
       });
   };
+  
 
   return (
     <div>
@@ -284,8 +300,11 @@ function Cadastro() {
         <FormContainer onSubmit={handleSubmit}>
           <FormTitle>Cadastro de Serviço</FormTitle>
           <FormDescription>
-            Realize o cadastro de seu Estabelecimento/Instituição!
-            Lembrando que apenas aceitamos cadastros na cidade de São Paulo.
+            Realize o cadastro de seu Estabelecimento/Instituição e ajude a fortalecer o nosso projeto!
+            <br></br>
+            <br></br>
+            Lembrando que apenas aceitamos cadastros na cidade de São Paulo. 
+
           </FormDescription>
           <Label htmlFor="causas">Causas</Label>
           <Select
@@ -396,11 +415,11 @@ function Cadastro() {
             id="telefone"
             type="tel"
             value={telefoneOng}
-            onChange={(e) => setTelefoneOng(e.target.value)}
-            placeholder="Insira seu telefone: 1199999999..."
+            onChange={handleTelefoneChange}
+            placeholder="Insira seu telefone: (XX)XXXXX-XXXX..."
             required
-            maxLength="10"
-            title="Telefone deve estar no formato (XX)XXXXXXXXX."
+            maxLength="15"
+            title="Telefone deve estar no formato (XX)XXXXX-XXXX."
           />
           <Label htmlFor="email">Endereço de e-mail</Label>
           <Input

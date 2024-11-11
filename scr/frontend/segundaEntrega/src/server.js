@@ -78,7 +78,8 @@ app.post("/login", (req, res) => {
 
 // Middleware para verificar o token JWT
 const authenticateToken = (req, res, next) => {
-  const token = req.headers["authorization"];
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
   if (!token) return res.status(401).json({ message: "Acesso negado" });
 
   jwt.verify(token, secretKey, (err, usuario) => {
@@ -90,7 +91,22 @@ const authenticateToken = (req, res, next) => {
 
 // Proteja a rota /admin
 app.get("/admin", authenticateToken, (req, res) => {
-  res.send("Bem-vindo à página de administração");
+  const { id } = req.usuario;
+  db.query(
+    "SELECT nome, foto FROM usuariosAdmin WHERE idAdmin = ?",
+    [id],
+    (err, results) => {
+      if (err) {
+        console.error("Erro ao buscar dados do admin: ", err);
+        return res.status(500).send("Erro ao buscar dados do admin");
+      }
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).send("Admin não encontrado");
+      }
+    }
+  );
 });
 
 // Endpoint para obter todos os cadastros
@@ -147,6 +163,117 @@ app.delete("/cadastros/:idUsuario", (req, res) => {
   });
 });
 
+// Endpoint para atualizar um cadastro - UPDATE
+app.put("/cadastros/:idUsuario", (req, res) => {
+  const { idUsuario } = req.params;
+  const {
+    nomeOng,
+    telefoneOng,
+    emailOng,
+    linkSite,
+    linkRedesSociais,
+    enderecoOng,
+    descricao,
+    modeloOng,
+    causa,
+  } = req.body;
+
+  const updatePrestadorQuery = `
+    UPDATE PrestadorServico
+    SET nomeOng = ?, telefoneOng = ?, emailOng = ?, linkSite = ?, linkRedesSociais = ?, enderecoOng = ?
+    WHERE idUsuario = ?
+  `;
+
+  const updateServicoQuery = `
+    UPDATE Servico
+    SET descricao = ?, modeloOng = ?
+    WHERE idUsuario = ?
+  `;
+
+  const updateTipoServicoQuery = `
+    UPDATE Tipo_Servico
+    SET causa = ?
+    WHERE idTipoServico = (SELECT idTipoServico FROM Servico WHERE idUsuario = ?)
+  `;
+
+  db.query(
+    updatePrestadorQuery,
+    [
+      nomeOng,
+      telefoneOng,
+      emailOng,
+      linkSite,
+      linkRedesSociais,
+      enderecoOng,
+      idUsuario,
+    ],
+    (err) => {
+      if (err) {
+        console.error("Erro ao atualizar prestador: ", err);
+        return res.status(500).send("Erro ao atualizar prestador");
+      }
+
+      db.query(updateServicoQuery, [descricao, modeloOng, idUsuario], (err) => {
+        if (err) {
+          console.error("Erro ao atualizar serviço: ", err);
+          return res.status(500).send("Erro ao atualizar serviço");
+        }
+
+        db.query(updateTipoServicoQuery, [causa, idUsuario], (err) => {
+          if (err) {
+            console.error("Erro ao atualizar tipo de serviço: ", err);
+            return res.status(500).send("Erro ao atualizar tipo de serviço");
+          }
+
+          console.log("Cadastro atualizado com sucesso");
+          res.status(200).send("Cadastro atualizado com sucesso");
+        });
+      });
+    }
+  );
+});
+
+// Endpoint para obter dados do admin logado
+app.get("/admin", authenticateToken, (req, res) => {
+  const { id } = req.usuario;
+  db.query(
+    "SELECT nome, foto FROM usuariosAdmin WHERE idAdmin = ?",
+    [id],
+    (err, results) => {
+      if (err) {
+        console.error("Erro ao buscar dados do admin: ", err);
+        return res.status(500).send("Erro ao buscar dados do admin");
+      }
+      if (results.length > 0) {
+        res.json(results[0]);
+      } else {
+        res.status(404).send("Admin não encontrado");
+      }
+    }
+  );
+});
+
+// Endpoint para atualizar dados do admin logado
+app.put("/admin", authenticateToken, upload.single("foto"), (req, res) => {
+  const { id } = req.usuario;
+  const { nome } = req.body;
+  const foto = req.file ? `public/uploads/${req.file.filename}` : null;
+
+  const updateQuery = `
+    UPDATE usuariosAdmin
+    SET nome = ?, foto = ?
+    WHERE idAdmin = ?
+  `;
+
+  db.query(updateQuery, [nome, foto, id], (err) => {
+    if (err) {
+      console.error("Erro ao atualizar dados do admin: ", err);
+      return res.status(500).send("Erro ao atualizar dados do admin");
+    }
+    res.json({ nome, foto });
+  });
+});
+
 // Endpoint para obter todos os prestadores de serviço
 
 // Cadastro de um novo prestador e serviço
@@ -173,8 +300,8 @@ app.post(
       ? `public/uploads/${req.files["logoOng"][0].filename}`
       : null;
     const fotosCarrosel = req.files["fotosCarrosel"]
-      ? req.files["fotosCarrosel"].map((file) =>
-          `public/uploads/${file.filename}`
+      ? req.files["fotosCarrosel"].map(
+          (file) => `public/uploads/${file.filename}`
         )
       : [];
 
