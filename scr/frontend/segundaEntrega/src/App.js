@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Home from './pages/Home';
 import Alimentacao from './pages/Alimentacao';
 import Acolhimento from './pages/Acolhimento';
@@ -43,6 +43,10 @@ import Login from './pages/Login.js';
 import RotaProtegida from './pages/RotaProtegida.js';
 
 function App() {
+  useEffect(() => {
+    // Limpa o token do localStorage ao iniciar o site
+    localStorage.removeItem('token');
+  }, []);
   return (
 
     <Router>
