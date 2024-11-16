@@ -33,9 +33,11 @@ Um site que permite o usuário ter acessos a diversas divulgações de serviços
 ├── img/
 ├── src/
 │   ├── Backend/
+│       └── entregaFinal/
 │   └── Frontend/
 │       └── primeiraEntrega/
 │       └── segundaEntrega/
+│       └── terceiraEntrega/
 │       └── entregaFinal/
 └── readme.md
 ```
@@ -165,7 +167,7 @@ ABRACESP © 2024 by André Gregório dos Santos, Guilherme Reis Fogolin de Godoy
 
 21. https://www.arouchianos.com.br/mona.html
 
-22. https://www.arouchianos.com.br/mona.html
+22. https://www.casaum.org/a-casa-1/
 
 23. https://casadoaconchego.org.br/
 
@@ -230,4 +232,12 @@ content/uploads/2023/01/GRAACC_Corrida2023_NoticiaSite_907x557.png
 50. https://th.bing.com/th/id/OIP.vP6pFP-eRLYcDGLvTGaIjAHaHa?rs=1&amp;pid=ImgDetMain
 
 51. https://conteudo.imguol.com.br/c/entretenimento/da/2021/10/07/projeto-tonkiri-ajuda-comunidades-capacita-e-desenvolve-seus-lideres-em-sp-1633636861308_v2_750x421.jpg
+
+52. https://institutolegado.org/blog/o-ods-16-paz-justica-e-instituicoes-eficazes-no-brasil/
+
+53. https://www.piscodeluz.org/desenvolvimento-sustentavel
+
+54. https://www.trt7.jus.br/index.php?option=com_content&view=article&id=4786:promover-sociedades-pacificas-e-acesso-a-justica-para-todos-faz-parte-do-ods-16-da-onu2&catid=261&Itemid=1170
+
+55. https://gtagenda2030.org.br/ods/ods16/
 ```
