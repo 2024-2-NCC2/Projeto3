@@ -93,6 +93,7 @@ npm install cors@^2.8.5
 npm install dotenv@^16.4.5
 npm install emailjs@^4.0.3
 npm install express@^4.21.1
+npm install express-session@^1.18.1
 npm install jsonwebtoken@^9.0.2
 npm install multer@^1.4.5-lts.1
 npm install mysql@^2.18.1
