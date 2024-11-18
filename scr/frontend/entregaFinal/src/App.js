@@ -44,7 +44,6 @@ import RotaProtegida from './backend/RotaProtegida.js';
 
 function App() {
   useEffect(() => {
-    // Limpa o token do localStorage ao iniciar o site
     localStorage.removeItem('token');
   }, []);
   return (
