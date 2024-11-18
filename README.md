@@ -119,7 +119,7 @@ npm install @emailjs/browser@4.4.1 @fontsource/inter@5.1.0 @fortawesome/fontawes
 npm start
 ```
 
-## 📋 Licença/License
+## 📋 Licença
 
 ABRACESP © 2024 by André Gregório dos Santos, Guilherme Reis Fogolin de Godoy, Lucas Moreira de Godoy, Pedro Henrique Nascimento Lemos, Yan Cezareto Ramos is licensed under CC BY-NC-ND 4.0 
 
