@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require('express-session'); // Adicione esta linha
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -9,13 +10,40 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config(); // Carregar variáveis de ambiente
 
 const app = express();
-app.use(cors());
+
+// Configuração de CORS para permitir requisições do frontend em localhost
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+app.options('*', cors({
+  origin: process.env.CORS_ORIGIN,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+
+// Configuração de sessão
+app.use(session({
+  secret: 'seuSegredoAqui', // Substitua por uma chave secreta segura
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+      secure: true,       // Necessário para HTTPS em produção
+      sameSite: 'none'    // Necessário para que cookies funcionem entre domínios diferentes (Netlify e Azure)
+  }
+}));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/public", express.static(path.join(__dirname, "../public")));
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // Verifique se o diretório 'public/uploads' existe, caso contrário, crie-o
-const uploadDir = path.join(__dirname, "../public/uploads");
+const uploadDir = path.join(__dirname, "../uploads");
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
@@ -38,6 +66,10 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT || 3306,
+  waitForConnections: true,
+  ssl: {
+    rejectUnauthorized: true,
+  }
 });
 
 // Conectar ao banco de dados

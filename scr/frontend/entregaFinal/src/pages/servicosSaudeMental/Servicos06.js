@@ -24,7 +24,7 @@ function Servicos06() {
                 </div>
               </div>
               <div style={styles.textContainer}>
-                <h1 style={styles.title}>SINPESP</h1>
+                <h1 style={styles.title}>ABPS</h1>
                 <p style={styles.description}>
                   A ABPS, fundada em 1970, promove a formação em Psicodrama e oferece atendimento psicoterapêutico à comunidade, além de parcerias com ONGs e instituições. Sua missão é perpetuar o Psicodrama e desenvolver o ser humano. A visão da instituição é ser referência em Psicodrama aplicado em projetos clínicos, educacionais e organizacionais. A ABPS valoriza equidade, inclusão, criatividade e responsabilidade social, em um ambiente acolhedor e colaborativo.
                 </p>

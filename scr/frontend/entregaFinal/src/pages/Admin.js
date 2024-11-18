@@ -352,7 +352,7 @@ function Admin() {
   useEffect(() => {
     // Fetch cadastros from the server
     axios
-      .get("http://localhost:3001/cadastros")
+      .get("https://abracesp.azurewebsites.net/cadastros")
       .then((response) => {
         console.log("Dados recebidos do servidor:", response.data); // Adicione este log
         setCadastros(response.data);
@@ -377,7 +377,7 @@ function Admin() {
   const handleDelete = (index) => {
     const cadastro = cadastros[index];
     axios
-      .delete(`http://localhost:3001/cadastros/${cadastro.idUsuario}`)
+      .delete(`https://abracesp.azurewebsites.net/cadastros/${cadastro.idUsuario}`)
       .then(() => {
         console.log(`Card ${index + 1} recusado`);
         setCadastros((prev) => prev.filter((_, i) => i !== index));
@@ -394,7 +394,7 @@ function Admin() {
 
   const handleSave = (index) => {
     axios
-      .put(`http://localhost:3001/cadastros/${editData.idUsuario}`, editData)
+      .put(`https://abracesp.azurewebsites.net/cadastros/${editData.idUsuario}`, editData)
       .then((response) => {
         setCadastros((prev) =>
           prev.map((cadastro, i) => (i === index ? editData : cadastro))
@@ -463,7 +463,7 @@ function Admin() {
                       {formatDate(cadastro.dataCadastro)}
                     </span>
                     <LogoCircle
-                      src={`http://localhost:3001/${cadastro.logoOng}`}
+                      src={`https://abracesp.azurewebsites.net/${cadastro.logoOng}`}
                       alt="Logo"
                     />
                     <CardTitle>{cadastro.nomeOng}</CardTitle>
@@ -472,7 +472,7 @@ function Admin() {
                         {JSON.parse(cadastro.fotosCarrosel).map((foto, idx) => (
                           <Carousel.Item key={idx}>
                             <CarouselImage
-                              src={`http://localhost:3001/${foto}`}
+                              src={`https://abracesp.azurewebsites.net/${foto}`}
                               alt={`Slide ${idx + 1}`}
                             />
                           </Carousel.Item>
