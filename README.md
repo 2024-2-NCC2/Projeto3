@@ -55,6 +55,9 @@ img: Reunião de imagens utilizadas no projeto.
 src (com backend e frontend): Pasta que contém os códigos do projeto.
 [src](./src)
 
+app: App.js da entrega final.
+[app](./scr/frontend/entregaFinal/src/App.js)
+
 bd: Banco de dados relacional usado no projeto.
 [bd](./documentos/bd)
 
