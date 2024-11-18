@@ -46,23 +46,29 @@ README.MD: Arquivo que serve como guia e explicação geral sobre o projeto ABRA
 
 Além disso, há outras pastas com os devidos arquivos em cada período de entrega.
 
-documentos: Devidos documentos do projeto, arquivos relacionados ao Banco de Dados e relações com Cálculo II.
-[documentos](./documentos)
-
-img: Reunião de imagens utilizadas no projeto.
-[img](./img)
-
-src (com backend e frontend): Pasta que contém os códigos do projeto.
+⛲src (com backend e frontend): Pasta que contém os códigos do projeto.
 [src](./src)
 
-app: App.js da entrega final.
+💾 app: App.js da entrega final.
 [app](./scr/frontend/entregaFinal/src/App.js)
 
-bd: Banco de dados relacional usado no projeto.
+🎲 bd: Banco de dados relacional usado no projeto.
 [bd](./documentos/bd)
+
+📄documentos: Devidos documentos do projeto, arquivos relacionados ao Banco de Dados e relações com Cálculo II.
+[documentos](./documentos)
+
+📸img: Reunião de imagens utilizadas no projeto.
+[img](./img)
 
 ## 🎨 Figma
 Link para o protótipo do [Figma](https://www.figma.com/proto/uvSgLKfouJ1rHC1m3e6JA7/Wireframes---ABRACESP?node-id=699-10&t=IAQbOVuR7RTnp4yq-1)!
+
+## 🔍 Versão final
+
+Versão final da construção do projeto. [ABRACESP](https://abracesp.netlify.app/).
+
+⚠️ Importante: O projeto foi pensado, no momento, para a utilização em notebooks e desktops. Outros dispositivos podem apresentar incompatibilidade com a responsividade. Os navegadores Google Chrome, Microsoft Edge, Safari e Mozilla Firefox foram testados e suportam as aplicações do projeto. 
 
 ## 💻 Configuração para Instalação
 
@@ -114,8 +120,7 @@ npm install web-vitals@^2.1.4
 ```
 (4) Ou através de apenas um comando:
 ```
-npm install @emailjs/browser@4.4.1 @fontsource/inter@5.1.0 @fortawesome/fontawesome-svg-core@6.6.0 @fortawesome/free-brands-svg-icons@6.6.0 @fortawesome/free-regular-svg-icons@6.6.0 @fortawesome/free-solid-svg-icons@6.6.0 @fortawesome/react-fontawesome@0.2.2 @testing-library/jest-dom@5.17.0 @testing-library/react@13.4.0 @testing-library/user-event@13.5.0 axios@1.7.7 bcrypt@5.1.1 body-parser@1.20.3 bootstrap@5.3.3 cors@2.8.5 dotenv@16.4.5 emailjs@4.0.3 express@4.21.1 jsonwebtoken@9.0.2 multer@1.4.5-lts.1 mysql@2.18.1 mysql2@3.11.3 nodemailer@6.9.16 react@18.3.1 react-bootstrap@2.10.5 react-dom@18.3.1 react-hook-form@7.53.1 react-router-dom@6.26.2 react-scripts@5.0.1 styled-components@6.1.13 web-vitals@2.1.4
-
+npm install @fontsource/inter@^5.1.0 @fortawesome/fontawesome-svg-core@^6.6.0 @fortawesome/free-brands-svg-icons@^6.6.0 @fortawesome/free-regular-svg-icons@^6.6.0 @fortawesome/free-solid-svg-icons@^6.6.0 @fortawesome/react-fontawesome@^0.2.2 @testing-library/jest-dom@^5.17.0 @testing-library/react@^13.4.0 @testing-library/user-event@^13.5.0 axios@^1.7.7 bcrypt@^5.1.1 body-parser@^1.20.3 bootstrap@^5.3.3 chart.js@^4.4.6 chartjs@^0.3.24 cors@^2.8.5 dotenv@^16.4.5 emailjs@^4.0.3 express@^4.21.1 express-session@^1.18.1 jsonwebtoken@^9.0.2 multer@^1.4.5-lts.1 mysql@^2.18.1 mysql2@^3.11.3 nodemailer@^6.9.16 react@^18.3.1 react-bootstrap@^2.10.5 react-chartjs-2@^5.2.0 react-dom@^18.3.1 react-router-dom@^6.26.2 react-scripts@^5.0.1 react-hook-form@^7.53.1 styled-components@^6.1.13 web-vitals@^2.1.4
 ```
 (5) Com isso, abra o servidor no navegador que melhor te interessar:
 ```
