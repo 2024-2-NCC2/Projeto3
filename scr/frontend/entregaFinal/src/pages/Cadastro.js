@@ -215,7 +215,7 @@ function Cadastro() {
 
     try {
       const response = await axios.post(
-        "https://abracesp.azurewebsites.net/cadastro",
+        "http://localhost:3001/cadastro",
         formData
       );
 

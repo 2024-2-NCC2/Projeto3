@@ -15,28 +15,28 @@ const app = express();
 app.use(cors({
   origin: process.env.CORS_ORIGIN,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true,
 }));
 
-app.options('*', cors({
-  origin: process.env.CORS_ORIGIN,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
+app.use(express.json());
+
+// app.options('*', cors({
+//   origin: process.env.CORS_ORIGIN || 'https://abracesp.netlify.app',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   credentials: true,
+// }));
 
 
 // Configuração de sessão
-app.use(session({
-  secret: 'seuSegredoAqui', // Substitua por uma chave secreta segura
-  resave: false,
-  saveUninitialized: false,
-  cookie: { 
-      secure: true,       // Necessário para HTTPS em produção
-      sameSite: 'none'    // Necessário para que cookies funcionem entre domínios diferentes (Netlify e Azure)
-  }
-}));
+// app.use(session({
+//   secret: 'seuSegredoAqui', // Substitua por uma chave secreta segura
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: { 
+//       secure: true,       // Necessário para HTTPS em produção
+//       sameSite: 'none'    // Necessário para que cookies funcionem entre domínios diferentes (Netlify e Azure)
+//   }
+// }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -125,7 +125,7 @@ const authenticateToken = (req, res, next) => {
 app.get("/admin", authenticateToken, (req, res) => {
   const { id } = req.usuario;
   db.query(
-    "SELECT nome, foto FROM usuariosAdmin WHERE idAdmin = ?",
+    "SELECT * FROM usuariosAdmin WHERE idAdmin = ?",
     [id],
     (err, results) => {
       if (err) {
@@ -269,7 +269,7 @@ app.put("/cadastros/:idUsuario", (req, res) => {
 app.get("/admin", authenticateToken, (req, res) => {
   const { id } = req.usuario;
   db.query(
-    "SELECT nome, foto FROM usuariosAdmin WHERE idAdmin = ?",
+    "SELECT * FROM usuariosAdmin WHERE idAdmin = ?",
     [id],
     (err, results) => {
       if (err) {
@@ -285,26 +285,6 @@ app.get("/admin", authenticateToken, (req, res) => {
   );
 });
 
-// Endpoint para atualizar dados do admin logado
-app.put("/admin", authenticateToken, upload.single("foto"), (req, res) => {
-  const { id } = req.usuario;
-  const { nome } = req.body;
-  const foto = req.file ? `public/uploads/${req.file.filename}` : null;
-
-  const updateQuery = `
-    UPDATE usuariosAdmin
-    SET nome = ?, foto = ?
-    WHERE idAdmin = ?
-  `;
-
-  db.query(updateQuery, [nome, foto, id], (err) => {
-    if (err) {
-      console.error("Erro ao atualizar dados do admin: ", err);
-      return res.status(500).send("Erro ao atualizar dados do admin");
-    }
-    res.json({ nome, foto });
-  });
-});
 
 // Endpoint para obter todos os prestadores de serviço
 
