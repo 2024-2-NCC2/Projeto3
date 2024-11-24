@@ -66,7 +66,7 @@ Link para o protótipo do [Figma](https://www.figma.com/proto/uvSgLKfouJ1rHC1m3e
 
 ## 🔍 Versão final
 
-Versão final da construção do projeto. [ABRACESP](https://abracesp.netlify.app/).
+Versão final da construção do projeto: [ABRACESP](https://abracesp.netlify.app/).
 
 ⚠️ Importante: O projeto foi pensado, no momento, para a utilização em notebooks e desktops. Outros dispositivos podem apresentar incompatibilidade com a responsividade. Os navegadores Google Chrome, Microsoft Edge, Safari e Mozilla Firefox foram testados e suportam as aplicações do projeto. 
 
